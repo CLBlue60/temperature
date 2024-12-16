@@ -1,17 +1,12 @@
-
-
-
 function convertTemperature() {
-  // Get input values
   const temperatureInput = document.getElementById("temperature").value;
   const scale = document.getElementById("scale").value;
   const resultElement = document.getElementById("result");
   const thermometerFill = document.getElementById("thermometer-fill");
 
-  // Reset classes and thermometer
   resultElement.classList.remove("cold", "warm", "hot", "default");
 
-  // Validate input
+
   if (!temperatureInput) {
     resultElement.textContent = "Please enter a valid temperature.";
     resultElement.classList.add("default");
@@ -21,7 +16,7 @@ function convertTemperature() {
 
   let convertedTemperature;
 
-  // Convert temperature based on scale
+
   if (scale === "C") {
     convertedTemperature = (temperatureInput * 9) / 5 + 32;
     resultElement.textContent = `Converted Temperature: ${convertedTemperature.toFixed(
@@ -38,16 +33,16 @@ function convertTemperature() {
     return;
   }
 
-  // Change text color based on temperature
+
   if (convertedTemperature < 10) {
-    resultElement.classList.add("cold"); // Blue for cold
+    resultElement.classList.add("cold");
   } else if (convertedTemperature >= 10 && convertedTemperature <= 25) {
-    resultElement.classList.add("warm"); // Orange for warm
+    resultElement.classList.add("warm");
   } else {
-    resultElement.classList.add("hot"); // Red for hot
+    resultElement.classList.add("hot");
   }
 
-  // Adjust thermometer fill height based on temperature
-  const percentageFill = Math.min(Math.max(convertedTemperature, 0), 100); // Clamp between 0 and 100
+
+  const percentageFill = Math.min(Math.max(convertedTemperature, 0), 100); 
   thermometerFill.style.height = `${percentageFill}%`;
 }
