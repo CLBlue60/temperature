@@ -124,3 +124,7 @@ button {
 button:hover {
     background-color: darkgreen;
 }
+
+.cloud {
+  color: blue;
+}
